@@ -1,6 +1,7 @@
 package com.company.taskManagmentSystem.core;
 
 import com.company.taskManagmentSystem.comands.CreatememberCommand;
+import com.company.taskManagmentSystem.comands.ShowPeopleCommand;
 import com.company.taskManagmentSystem.comands.enums.CommandType;
 import com.company.taskManagmentSystem.core.contracts.Command;
 import com.company.taskManagmentSystem.core.contracts.CommandFactory;
@@ -13,10 +14,11 @@ public class CommandFactoryImpl implements CommandFactory {
     public Command createCommandFromCommandName(String commandName, TmsRepository tmsRepository) {
         CommandType commandType = CommandType.valueOf(commandName.toUpperCase());
 
-        switch (commandType){
+        switch (commandType) {
             case CREATEMEMBER:
                 return new CreatememberCommand(tmsRepository);
-//                    SHOWPEOPLE,
+            case SHOWPEOPLE:
+                return new ShowPeopleCommand(tmsRepository);
 //                    SHOWPEOPLEACTIVITY,
 //                    CREATETEAM,
 //                    SHOWTEAM,
@@ -39,8 +41,8 @@ public class CommandFactoryImpl implements CommandFactory {
 //                    ASSIGNETASKPERSON,
 //                    UNASSIGNTASKPERSON,
 //                    ADDCOMMENTTOTASK;
-            default:
-                throw new IllegalArgumentException(String.format(INVALID_COMMAND,commandName));
+                    default:
+                throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandName));
         }
     }
 }

@@ -20,4 +20,14 @@ public class TmsRepositoryImpl implements TmsRepository {
         memberList.add(member);
         return member;
     }
+
+    @Override
+    public List<Member> getMember() {
+        return new ArrayList<>(memberList);
+    }
+
+    @Override
+    public void addMember(Member member) {
+        memberList.add(member);
+    }
 }
