@@ -1,7 +1,7 @@
 package com.company.taskManagmentSystem.comands.enums;
 
 public enum CommandType {
-    CREATEPERSON,
+    CREATEMEMBER,
     SHOWPEOPLE,
     SHOWPEOPLEACTIVITY,
     CREATETEAM,

@@ -1,7 +1,11 @@
 package com.company.taskManagmentSystem;
 
+import com.company.taskManagmentSystem.core.TmsEngineImpl;
+import com.company.taskManagmentSystem.core.TmsRepositoryImpl;
+
 public class Startup {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+        TmsEngineImpl engine = new TmsEngineImpl();
+        engine.start();
     }
 }
