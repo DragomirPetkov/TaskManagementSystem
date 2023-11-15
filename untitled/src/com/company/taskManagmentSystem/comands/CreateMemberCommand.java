@@ -7,14 +7,14 @@ import com.company.taskManagmentSystem.units.ValidateHelper;
 
 import java.util.List;
 
-public class CreatememberCommand implements Command {
+public class CreateMemberCommand implements Command {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 1;
     public static final String MEMBER_CREATED = "Member whith name %s created!";
 
     private final TmsRepository tmsRepository;
 
-    public CreatememberCommand(TmsRepository tmsRepository){
+    public CreateMemberCommand(TmsRepository tmsRepository){
         this.tmsRepository = tmsRepository;
     }
     @Override

@@ -1,7 +1,6 @@
 package com.company.taskManagmentSystem.core;
 
-import com.company.taskManagmentSystem.comands.CreatememberCommand;
-import com.company.taskManagmentSystem.comands.ShowPeopleCommand;
+import com.company.taskManagmentSystem.comands.*;
 import com.company.taskManagmentSystem.comands.enums.CommandType;
 import com.company.taskManagmentSystem.core.contracts.Command;
 import com.company.taskManagmentSystem.core.contracts.CommandFactory;
@@ -16,14 +15,17 @@ public class CommandFactoryImpl implements CommandFactory {
 
         switch (commandType) {
             case CREATEMEMBER:
-                return new CreatememberCommand(tmsRepository);
+                return new CreateMemberCommand(tmsRepository);
             case SHOWPEOPLE:
                 return new ShowPeopleCommand(tmsRepository);
 //                    SHOWPEOPLEACTIVITY,
-//                    CREATETEAM,
-//                    SHOWTEAM,
+            case CREATETEAM:
+                return new CeateTeamCommand(tmsRepository);
+            case SHOWTEAM:
+                return new ShowTeamCommand(tmsRepository);
 //                    SHOWTEAMACTIVITY,
-//                    ADDPERSONTOTEAM,
+            case  ADDPERSONTOTEAM:
+                return new AddPersonToTeamCommand(tmsRepository);
 //                    SHOWTEAMMEMBERS,
 //                    CREATENEWBOARDTEAM,
 //                    SHOWTEAMBOARD,
@@ -42,7 +44,7 @@ public class CommandFactoryImpl implements CommandFactory {
 //                    UNASSIGNTASKPERSON,
 //                    ADDCOMMENTTOTASK;
                     default:
-                throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandName));
+                throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandType));
         }
     }
 }
