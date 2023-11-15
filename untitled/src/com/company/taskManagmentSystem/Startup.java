@@ -1,4 +1,6 @@
-public class Main {
+package com.company.taskManagmentSystem;
+
+public class Startup {
     public static void main(String[] args) {
         System.out.println("Hello world!");
     }
