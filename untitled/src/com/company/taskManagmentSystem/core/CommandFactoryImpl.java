@@ -24,9 +24,10 @@ public class CommandFactoryImpl implements CommandFactory {
             case SHOWTEAM:
                 return new ShowTeamCommand(tmsRepository);
 //                    SHOWTEAMACTIVITY,
-            case  ADDPERSONTOTEAM:
-                return new AddPersonToTeamCommand(tmsRepository);
-//                    SHOWTEAMMEMBERS,
+            case ADDMEMBERTOTEAM:
+                return new AddMemberToTeamCommand(tmsRepository);
+            case SHOWTEAMMEMBERS:
+                return new  ShowTeamMembersCommand(tmsRepository);
 //                    CREATENEWBOARDTEAM,
 //                    SHOWTEAMBOARD,
 //                    CREATEBUGBOARD,
@@ -43,7 +44,7 @@ public class CommandFactoryImpl implements CommandFactory {
 //                    ASSIGNETASKPERSON,
 //                    UNASSIGNTASKPERSON,
 //                    ADDCOMMENTTOTASK;
-                    default:
+            default:
                 throw new IllegalArgumentException(String.format(INVALID_COMMAND, commandType));
         }
     }

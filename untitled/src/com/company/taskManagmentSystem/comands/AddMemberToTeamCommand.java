@@ -8,13 +8,13 @@ import com.company.taskManagmentSystem.units.ValidateHelper;
 
 import java.util.List;
 
-public class AddPersonToTeamCommand implements Command {
+public class AddMemberToTeamCommand implements Command {
 
     public static final int EXPECTED_NUMBER_OF_ARGUMENTS = 2;
 
     private TmsRepository tmsRepository;
 
-    public AddPersonToTeamCommand(TmsRepository tmsRepository){
+    public AddMemberToTeamCommand(TmsRepository tmsRepository){
         this.tmsRepository = tmsRepository;
     }
     @Override

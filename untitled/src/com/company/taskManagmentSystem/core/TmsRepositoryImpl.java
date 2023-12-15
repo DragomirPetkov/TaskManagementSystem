@@ -1,9 +1,11 @@
 package com.company.taskManagmentSystem.core;
 
 import com.company.taskManagmentSystem.core.contracts.TmsRepository;
+import com.company.taskManagmentSystem.exception.UserInvalidException;
 import com.company.taskManagmentSystem.models.MemberImpl;
 import com.company.taskManagmentSystem.models.TeamImpl;
 import com.company.taskManagmentSystem.models.contracts.Member;
+import com.company.taskManagmentSystem.models.contracts.Nameable;
 import com.company.taskManagmentSystem.models.contracts.Team;
 
 import java.util.ArrayList;
@@ -70,4 +72,13 @@ public class TmsRepositoryImpl implements TmsRepository {
         }
         throw new IllegalArgumentException(String.format("Team name %s not exists",nameMember));
     }
+
+   private <T extends Nameable> T findNameByType(List<T> lists,T nameType){
+        for(T t : lists){
+            if (t.equals(nameType)){
+                return t;
+            }
+        }
+        throw new UserInvalidException(String.format("Team name %s not exists",nameType));
+   }
 }
